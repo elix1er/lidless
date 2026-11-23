@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#232838"/>
+      <stop offset="1" stop-color="#090B12"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6FF0FF"/>
+      <stop offset="0.5" stop-color="#7A5CFF"/>
+      <stop offset="1" stop-color="#FF5FC6"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.28"/>
+      <stop offset="0.45" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DCE0E8"/>
+      <stop offset="1" stop-color="#8A90A0"/>
+    </linearGradient>
+    <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A1D27"/>
+      <stop offset="1" stop-color="#040508"/>
+    </linearGradient>
+    <radialGradient id="spill" cx="0.5" cy="0" r="0.8">
+      <stop offset="0" stop-color="#8F7BFF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#8F7BFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="46"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <clipPath id="squircle"><rect x="100" y="100" width="824" height="824" rx="185"/></clipPath>
+  </defs>
+
+  <!-- tile -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/>
+
+  <g clip-path="url(#squircle)">
+    <!-- external display: glow, bezel, picture -->
+    <rect x="232" y="214" width="560" height="340" rx="30" fill="url(#screen)" opacity="0.6" filter="url(#glow)"/>
+    <rect x="482" y="548" width="60" height="70" fill="#151823"/>
+    <rect x="222" y="204" width="580" height="356" rx="32" fill="#0C0E15"/>
+    <rect x="238" y="220" width="548" height="324" rx="20" fill="url(#screen)"/>
+    <clipPath id="pic"><rect x="238" y="220" width="548" height="324" rx="20"/></clipPath>
+    <g clip-path="url(#pic)">
+      <rect x="238" y="220" width="548" height="24" fill="#fff" opacity="0.28"/>
+      <rect x="330" y="290" width="300" height="190" rx="14" fill="#fff" opacity="0.22"/>
+      <rect x="330" y="290" width="300" height="30" rx="14" fill="#fff" opacity="0.18"/>
+      <circle cx="350" cy="305" r="5" fill="#fff" opacity="0.7"/>
+      <circle cx="366" cy="305" r="5" fill="#fff" opacity="0.7"/>
+      <circle cx="382" cy="305" r="5" fill="#fff" opacity="0.7"/>
+      <rect x="238" y="220" width="548" height="324" fill="url(#sheen)"/>
+    </g>
+
+    <!-- light the display throws onto the desk -->
+    <ellipse cx="512" cy="690" rx="330" ry="90" fill="#8F7BFF" opacity="0.32" filter="url(#glow)"/>
+
+    <!-- laptop shadow -->
+    <ellipse cx="512" cy="812" rx="300" ry="26" fill="#000" opacity="0.55" filter="url(#shadow)"/>
+
+    <!-- half-open lid, screen dark -->
+    <path d="M318 612 H706 Q714 612 716 620 L728 700 H296 L308 620 Q310 612 318 612 Z" fill="#9DA3B2"/>
+    <path d="M324 620 H700 L710 694 H314 Z" fill="url(#lid)"/>
+    <path d="M324 620 H700 L703 640 H321 Z" fill="#fff" opacity="0.05"/>
+
+    <!-- deck -->
+    <path d="M296 700 H728 L796 790 Q800 800 788 800 H236 Q224 800 228 790 Z" fill="url(#deck)"/>
+    <path d="M236 800 H788 Q790 812 776 814 H248 Q234 812 236 800 Z" fill="#5F6574"/>
+
+    <!-- keyboard -->
+    <path d="M318 710 H706 L726 742 H298 Z" fill="#2A2E3A" opacity="0.85"/>
+    <g stroke="#DCE0E8" stroke-opacity="0.18" stroke-width="2">
+      <line x1="310" y1="721" x2="714" y2="721"/>
+      <line x1="304" y1="731" x2="720" y2="731"/>
+    </g>
+
+    <!-- trackpad, lit: the part you still use -->
+    <path d="M440 752 H584 L592 786 H432 Z" fill="#6FF0FF" opacity="0.35" filter="url(#shadow)"/>
+    <path d="M440 752 H584 L592 786 H432 Z" fill="#EEF1F6" stroke="#fff" stroke-opacity="0.6" stroke-width="1.5"/>
+  </g>
+
+  <!-- tile edge -->
+  <rect x="100.5" y="100.5" width="823" height="823" rx="184.5" fill="none" stroke="#fff" stroke-opacity="0.09" stroke-width="1"/>
+</svg>
